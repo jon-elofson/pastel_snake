@@ -3,6 +3,7 @@ if (typeof Snake === "undefined") {
   window.Snake = {};
 }
 
+
 Snake.snake = function (startpos,board) {
   this.startpos = startpos;
   this.dir = "N";
@@ -10,6 +11,14 @@ Snake.snake = function (startpos,board) {
   this.board = board;
   this.hitSelf = false;
   this.outOfBounds = false;
+};
+
+Snake.highScores = [['JON',200],['TST',250]];
+
+Snake.sortedScores = function () {
+  return Snake.highScores.sort(function (a,b) {
+    return b[1] - a[1];
+  });
 };
 
 Snake.snake.prototype.hasCoord = function (coord) {
@@ -40,6 +49,10 @@ Snake.snake.prototype.addSeg = function () {
 
 Snake.snake.prototype.checkNextMove = function (nextGridPos) {
    if (nextGridPos === "A") {
+      this.board.score += 10;
+      if (this.board.score % 50 === 0 && this.board.level < 10) {
+        this.board.level += 1;
+      }
       this.addSeg();
       this.addSeg();
       this.addSeg();
@@ -92,6 +105,8 @@ Snake.board = function () {
     this.grid[i] = new Array(48);
   }
   this.snake = new Snake.snake([24,24],this);
+  this.score = 0;
+  this.level = 1;
   this.placeApple();
   this.update();
 };

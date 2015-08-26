@@ -14,17 +14,17 @@ h1 {
 
 .snakegame ul {
   padding-left: 0px;
-  display: block;
   height: 480px;
+  display: block;
+  top: 15%;
   width: 480px;
-  position: relative;
   background-color: #D6EBFF;
-  border: 2px solid gray;
-  margin-left: auto;
-  margin-right: auto;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  margin: auto;
 }
 
-.snakegame div {
+.snakegame div.grid-square {
   display: block;
   float: left;
   height: 10px;
@@ -55,6 +55,33 @@ h1 {
 }
 
 .snakegame div.apple {
-  background-color: #FF6666;
   border-radius: 4px;
+}
+
+h2 {
+  font-family: arial;
+  text-align: center;
+}
+
+h3.leader-board-header {
+  color: lightgray;
+  font-family: arial;
+  text-align: center;
+  border-bottom: 2px solid lightgray;
+}
+
+h4.high-score {
+  color: lightgray;
+  font-family: arial;
+  text-align: center;;
+}
+
+div.leader-board {
+  background-color: white;
+  display: inline-block;
+  border-radius: 8px;
+  height: 30vw;
+  width: 25vh;
+  margin-left: 10%;
+  margin-right: 20px;
 }
